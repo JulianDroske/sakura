@@ -3694,9 +3694,11 @@ sakura_get_term_cwd_osc7(struct sakura_tab* sk_tab)
 
 	if (osc7_uri) {
 		cwd = g_filename_from_uri(osc7_uri, &osc7_hostname, NULL);
-		/* Check if the hostname matchs. If not, return NULL */
-		hostname = g_get_host_name();
-		if ((strcmp(osc7_hostname, hostname) != 0) || (strcmp(osc7_hostname, "localhost") == 0)) cwd = NULL;
+		if (osc7_hostname) {
+			/* Check if the hostname matchs. If not, return NULL */
+			hostname = g_get_host_name();
+			if ((strcmp(osc7_hostname, hostname) != 0) || (strcmp(osc7_hostname, "localhost") == 0)) cwd = NULL;
+		}
 	}
 
 	return cwd;

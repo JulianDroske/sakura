@@ -2935,9 +2935,6 @@ sakura_set_colors ()
 		vte_terminal_set_bold_is_bright(VTE_TERMINAL(sk_tab->vte), sakura.bold_is_bright);
 
 	}
-
-	/* Main window opacity must be set. Otherwise vte widget will remain opaque */
-	gtk_widget_set_opacity(sakura.main_window, sakura.backcolors[sk_tab->colorset].alpha);
 }
 
 
